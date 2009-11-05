@@ -1,7 +1,11 @@
 # encoding: UTF-8
 require 'rubygems'
 require 'benchmark'
-require 'yajl_ext'
+begin
+  require 'yajl_ext'
+rescue LoadError
+  require 'yajl/ffi'
+end
 require 'stringio'
 require 'json'
 # Can't use ActiveSuport::JSON.encode with the JSON gem loaded
